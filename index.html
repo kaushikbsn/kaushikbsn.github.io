@@ -6,7 +6,23 @@
 
   <!-- Google Font (Free) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    /******** ADMIN CONFIGURATION ********/
+    const SURVEY_PASSWORD = "Survey@123";
+    /************************************/
 
+    function checkPassword() {
+      const enteredPassword = document.getElementById("password").value;
+
+      if (enteredPassword === SURVEY_PASSWORD) {
+        document.getElementById("formContainer").style.display = "block";
+        document.getElementById("error").innerText = "";
+      } else {
+        document.getElementById("error").innerText = "Incorrect password. Please try again.";
+      }
+    }
+  </script>
   <style>
     * {
       box-sizing: border-box;
@@ -106,22 +122,6 @@
     }
   </style>
 
-  <script>
-    /******** ADMIN CONFIGURATION ********/
-    const SURVEY_PASSWORD = "Survey@123";
-    /************************************/
-
-    function checkPassword() {
-      const enteredPassword = document.getElementById("password").value;
-
-      if (enteredPassword === SURVEY_PASSWORD) {
-        document.getElementById("formContainer").style.display = "block";
-        document.getElementById("error").innerText = "";
-      } else {
-        document.getElementById("error").innerText = "Incorrect password. Please try again.";
-      }
-    }
-  </script>
 </head>
 
 <body>
