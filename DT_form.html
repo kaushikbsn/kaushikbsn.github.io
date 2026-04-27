@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Survey Access</title>
+
+  <!-- Google Font (Free) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1a2980, #26d0ce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Card container */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.8s ease;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #1a1a1a;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1a2980;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #243dbf;
+    }
+
+    #error {
+      color: red;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    #formContainer {
+      display: none;
+      margin-top: 30px;
+    }
+
+    /* Smooth entry animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Small note */
+    .note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    /******** ADMIN CONFIGURATION ********/
+    const SURVEY_PASSWORD = "Survey@123";
+    /************************************/
+
+    function checkPassword() {
+      const enteredPassword = document.getElementById("password").value;
+
+      if (enteredPassword === SURVEY_PASSWORD) {
+        document.getElementById("formContainer").style.display = "block";
+        document.getElementById("error").innerText = "";
+      } else {
+        document.getElementById("error").innerText = "Incorrect password. Please try again.";
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Secure Survey Access</h2>
+    <p class="subtitle">Please enter the password to proceed</p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter password"
+    />
+
+    <button onclick="checkPassword()">Access Survey</button>
+
+    <p id="error"></p>
+
+    <div id="formContainer">
+      <!-- Paste Microsoft Form embed iframe below -->
+      <iframe width="640px" height="480px" 
+    src="https://forms.office.com/Pages/ResponsePage.aspx?id=9rVW80SOiU21NG30teii0jgum2SRDbxEpRSIAVJZAwxUMU4zWTlPTFhPSVg0MjMzQVRLQjA2S05DMC4u&embed=true" 
+    frameborder="0" marginwidth="0" marginheight="0" style="border: none; 
+    max-width:100%; max-height:100vh" 
+    allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> 
+
+    </iframe>
+
+    </div>
+
+    <p class="note">
+      If this page opens inside Microsoft Teams, please click <b>Open in browser</b>.
+    </p>
+  </div>
+
+</body>
+</html>
