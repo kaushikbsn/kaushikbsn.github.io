@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Survey Access</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+    }
+    #formContainer {
+      display: none;
+      margin-top: 30px;
+    }
+    input {
+      padding: 8px;
+      font-size: 14px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  </style>
+  
+  <script>
+    /******** ADMIN CONFIGURATION ********/
+    const correctPassword = "Survey@123";  
+    /************************************/
+  </script>
+
+</head>
+
+<body>
+
+  <h2>Enter Password to Access Survey</h2>
+
+  <input type="password" id="password" placeholder="Enter password" />
+  <button onclick="checkPassword()">Submit</button>
+
+  <p id="error" style="color:red;"></p>
+
+  <div id="formContainer">
+    <!-- Paste Microsoft Form embed code below -->
+    <iframe width="640px" height="480px" 
+    src="https://forms.office.com/Pages/ResponsePage.aspx?id=9rVW80SOiU21NG30teii0jgum2SRDbxEpRSIAVJZAwxUMU4zWTlPTFhPSVg0MjMzQVRLQjA2S05DMC4u&embed=true" 
+    frameborder="0" marginwidth="0" marginheight="0" style="border: none; 
+    max-width:100%; max-height:100vh" 
+    allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> 
+
+    </iframe>
+  </div>
+
+  <script>
+    function checkPassword() {
+      // const correctPassword = "Kaushik"; // change this
+      const enteredPassword = document.getElementById("password").value;
+
+      if (enteredPassword === correctPassword) {
+        document.getElementById("formContainer").style.display = "block";
+        document.getElementById("error").innerText = "";
+      } else {
+        document.getElementById("error").innerText = "Incorrect password.";
+      }
+    }
+  </script>
+
+</body>
+</html>
